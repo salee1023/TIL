@@ -28,8 +28,8 @@ for num in range(number):
 # 자연수 number를 입력 받아, number부터 0까지의 수를 세로로 한줄씩 출력하시오.
 number = int(input())
 
-for num in range(number+1):
-  print(number-num)
+for num in range(number,-1,-1):
+    print(num)
 ```
 
 
@@ -40,8 +40,8 @@ for num in range(number+1):
 # 자연수 number를 입력 받아, number부터 0까지의 수를 가로로 한칸씩 띄어 출력하시오.
 number = int(input())
 
-for num in range(number+1):
-  print(number-num, end=' ')
+for num in range(number,-1,-1):
+    print(num, end =' ')
 ```
 
 

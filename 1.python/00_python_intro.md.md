@@ -104,9 +104,41 @@ salee
 20
 ```
 
+- 변수의 개수와 값의 개수는 같아야한다.
+- 변수끼리의 값을 바꿀 수 있다.
+
+```python
+a, b = 10, 20
+a, b = b , a
+print(a)
+print(b)
+```
+
+```
+20
+10
+```
+
 
 
 ##### 식별자(Identifiers)
+
+> 식별자란 변수, 함수, 모듈, 클래스 등을 식별하는데 사용되는 이름(name)이다.
+
+- 식별자의 이름은 영문알파벳(대문자, 소문자) , 언더바(_), 숫자로 구성된다.
+- 첫 글자에는 숫자  x
+- 길이에 제한이 없다.
+- 대소문자 구별
+- 예약어는 사용  x
+
+```python
+import keyword
+print(keyword.kwlist)
+```
+
+```
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+```
 
 
 
@@ -114,7 +146,39 @@ salee
 
 ##### 숫자 (Number)
 
+- int (정수)
 
+  > 모든 정수는 `int`  로 표현한다.
+  >
+  > 8진수 : `0o`  2진수 : `0b` 16진수 : `0x`  
+
+- float (실수)
+
+  > 모든 실수는 `float` 로 표현한다.
+  >
+  > 지수 표현 방식 : `3.14`  == `314e-2`
+  >
+  > - 실수를 컴퓨터가 표현하는 과정에서 부동소수점을 사용하여, 항상 같은 값으로 일치되지 않는다.
+  >
+  > ```python
+  > a = 3.5 - 3.2
+  > b = 0.3
+  > 
+  > ```
+  >
+  > ```python
+  > import sys
+  > print(sys.float_info.epsilon)
+  > 
+  > abs(a - b) <= sys.float_info.epsilon
+  > ```
+  >
+  > ```python
+  > import math
+  > math.isclose(a,b)
+  > ```
+  >
+  > 
 
 ##### 문자 (String)
 
@@ -122,3 +186,32 @@ salee
 
 ##### 참/거짓 (Boolean)
 
+
+
+##### 형 변환(Type Conversion)
+
+
+
+### 2-3. 연산자 (Operator)
+
+##### 산술 연산자
+
+
+
+##### 비교 연산자
+
+
+
+##### 논리 연산자
+
+
+
+##### 복합 연산자
+
+
+
+##### 기타 주요 연산자
+
+
+
+##### 연산자 우선순위
