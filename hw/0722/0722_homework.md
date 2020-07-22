@@ -1,83 +1,85 @@
-# 0721_homework
+# 0722_homework
 
-### 1. Mutable & Immutable
+### 1. Built-in 함수
 
-```python
-# 주어진 컨테이너들을 각각 변경 가능한 것과 변경 불가능한 것으로 분류하시오
-String, List, Tuple, Range, Set, Dictionary
-```
-
-- Mutable : List, Set, Dictionary
-- Immutable : String, Tuple, Range
-
-
-
-### 2. 홀수만 담기
+> Python에서 기본으로 사용할 수 있는 built-in 함수를 최소 5가지 이상 작성하시오.
 
 ```python
-# range와 slicing을 활용하여 1부터 50까지의 숫자 중, 홀수로만 이루어진 리스트를 만드시오
-odd_numbers = list(range(1,51,2))
-print(odd_numbers)
+input()
+int()
+sum()
+print()
+max()
+sorted()
 ```
 
 
 
-### 3. Dictionary 만들기
+### 2. 정중앙 문자
+
+> 문자열을 전달 받아 해당 문자열의 정중앙 문자를 반환하는 get_middle_char 함수를 작성하시오. 단 문자열의 길이가 짝수일 경우에는 정중앙 문자 2개를 반환한다. 
 
 ```python
-# 반 학생들의 정보를 이용하여 key는 이름, value는 나이인 dictionary를 만드시오.
-class_info = {
-    '강석민' : 28,
-    '강채원' : 25,
-    '구영지' : 27,
-    '김대중' : 27,
-    '김수연' : 26,
-    '김수진' : 26,
-    '이석원' : 28,
-    '이승아' : 25
-}
+def get_middle_char(word):
+    mid_char = len(word) // 2
+    if len(word) % 2:
+        return print(word[mid_char])
+    else:
+        return print(word[mid_char-1],word[mid_char])     
+
+get_middle_char('ssafy')
+get_middle_char('coding')
 ```
 
 
 
-### 4. 반복문으로 네모 출력
+### 3. 위치 인자와 키워드 인자
+
+> 다음과 같이 함수가 선언되어 있을 때, 보기 (1) ~(4) 중에서 실행 시 오류가 발생하는 코드를 고르시오.
 
 ```python
-# 두 개의 정수 n과 m이 주어졌을 때, 가로의 길이가 n, 세로의 길이가 m인 직사각형 형태의 별 (*)과 반복문을 이용해 출력하시오.
-n = 5 
-m = 9
+def ssafy(name, location ='서울'):
+    print(f'{name}의 지역은 {location}입니다.')
 
-for i in range(9):
-    for j in range(5):
-        print('*', end ='')
-    print() 
+#(1)
+ssafy('허준')
+#(2)
+ssafy(location ='대전', naem ='철수')
+#(3)
+ssafy('영희', location ='광주')
+#(4)     
+ssafy(name = '길동', '구미')
 ```
 
+#(4)에서 오류발생
 
 
-### 5.  조건 표현
+
+### 4. 나의 반환값은
+
+> 다음과 같이 함수를 선언하고 호출하였을 때, 변수 result에 저장된 값을 작성하시오.
 
 ```python
-# 주어진 코드의 조건문을 조건 표현식으로 바꾸어 작성하시오
-temp = 36.5
-if temp >= 37.5:
-    print('입실 불가')
-else:
-    print('입실 가능')
+def my_func(a,b):
+    c = a + b
+    print(c)
+
+result = my_func(3,7)
 ```
+
+None
+
+
+
+### 5.  가변 인자 리스트
+
+> 가변 인자 리스트를 사용하여, 갯수가 정해지지 않은 여러 정수들을 전달 받아 해당 정수들의 평균 값을 반환하는 my_avg 함수를 작성하시오.
 
 ```python
-print('입실 불가') if temp >= 37.5 else print('입실 가능') 
+def my_avg(*args):
+    result = sum(args)/len(args)
+    return print(result)
+
+my_avg(77,83,95,80,70) 
 ```
 
-
-
-
-
-### 6. 평균 구하기
-
-```python
-# 주어진 list에 담긴 숫자들의 평균값을 출력하시오.
-scores = [80, 89, 99, 83]
-print(sum(scores)/len(scores))
-```
