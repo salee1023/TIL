@@ -5,9 +5,9 @@
 > 정수로만 이루어진 list를 전달 받아 해당 list의 모든 요소들의 합을 반환하는 list_sum 함수를 built-in 함수인 sum() 함수를 사용하지 않고 작성하시오.
 
 ```python
-def list_sum(list):
+def list_sum(numbers):
     result = 0
-    for num in list:
+    for num in numbers:
         result += num
     return print(result)
 

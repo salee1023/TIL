@@ -1,5 +1,8 @@
-def my_avg(*args):
-    result = sum(args)/len(args)
-    return print(result)
-
-my_avg(77,83,95,80,70)    
+case = int(input())
+for i in range(1, case + 1):
+    sum_data = 0
+    for data in map(int, input().split()):
+        if data % 2:
+            sum_data += data
+ 
+    print(f'#{i} {sum_data}')
