@@ -158,37 +158,96 @@ print(keyword.kwlist)
   >
   > 지수 표현 방식 : `3.14`  == `314e-2`
   >
-  > - 실수를 컴퓨터가 표현하는 과정에서 부동소수점을 사용하여, 항상 같은 값으로 일치되지 않는다.
-  >
-  > ```python
-  > a = 3.5 - 3.2
-  > b = 0.3
-  > 
-  > ```
-  >
-  > ```python
-  > import sys
-  > print(sys.float_info.epsilon)
-  > 
-  > abs(a - b) <= sys.float_info.epsilon
-  > ```
-  >
-  > ```python
-  > import math
-  > math.isclose(a,b)
-  > ```
-  >
-  > 
+  > 실수를 컴퓨터가 표현하는 과정에서 부동소수점을 사용하여, 항상 같은 값으로 일치되지 않는다.
+
+  ```python
+  # a == b -> False
+  a = 3.5 - 3.2
+  b = 0.3
+  a == b
+  
+  # 1. sys 모듈 : 'epsilon'은 아주 작은 오차를 상환시켜준다.
+  import sys
+  print(sys.float_info.epsilon)
+  
+  abs(a - b) <= sys.float_info.epsilon
+  
+  # 2. math 모듈 : isclose()
+  import math
+  math.isclose(a,b)
+  ```
+
+- complex(복소수)
+
+  > 실수부와 허수부(`j`)로 구성된다.
+
+  ```python
+  x = 3 + 4j
+  # 실수
+  x.real
+  # 허수
+  x.imag
+  ```
+
+  
 
 ##### 문자 (String)
 
+- 문자열은 `'`  와 `"` 로 표현 가능하다.
+- 문자열 안의 문장부호는 (`\`) 를 활용해 표현 가능하다.
+- 여러줄의 문장은  `"""` 를 활용한다.
+- 문자열은 변수화가 가능하고, `+` 로 이어 붙일 수 있다.
+- 이스케이프 시퀀스
 
+| 예약문자 | 내용(의미) |
+| -------- | ---------- |
+| `\n`     | 줄 바꿈    |
+| `\t`     | 탭         |
+| `\r`     | 캐리지리턴 |
+| `\0`     | 널(Null)   |
+| `\\`     | \          |
+| `\'`     | '          |
+| `\"`     | "          |
+
+- String Interpolation
+
+  > f-strings 에서는 연산과 출력형식 지정을 할 수 있다.
+
+  ```python
+  name = 'seunga'
+  
+  # str.format()
+  print('내 이름은 {}입니다.'.format(name))
+  
+  # f-string
+  print(f'내 이름은 {name}입니다.')
+  print(f'파이: {pi:.3}, 넓이: {pi*r*r:.3}') 
+  # -> 파이: 3.14, 넓이: 3.14e+02
+  ```
+
+  
 
 ##### 참/거짓 (Boolean)
+
+- `bool` 타입은 `True`  와 `False`  로 이루어져있다.
+- 0, 0.0, (), [], {}, '', None 은 `False`  로 변환된다.
+- `None`  은 값이 없음을 표현한다.
 
 
 
 ##### 형 변환(Type Conversion)
+
+- 암시적 형변환 (Implicit Type Conversion)
+
+  > 파이썬이 자동으로 형변환하는 경우이다. `bool`  과 Numbers(`int`, `float`, `complex`) 만 가능하다.
+
+- 명시적 형변환 (Explicit Type Conversion)
+
+  > 암시적 형변환을 제외하고는 모두 직접 형 변환을 해주어야 한다.
+
+  - `int()` : string, float를 int로 변환
+  - `float()` : string, int를 float로 변환
+  - `str()` : int, float, list, tuple, dictionary를 문자열로 변환
 
 
 
