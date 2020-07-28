@@ -17,6 +17,17 @@ duplicated_letters('apple')
 duplicated_letters('banana')    
 ```
 
+```python
+# list comprehension 이용
+def duplicated_letters(words):
+    result = list({word for word in words if(words.count(word) >= 2)})
+    return print(result)
+
+
+duplicated_letters('apple')
+duplicated_letters('banana')  
+```
+
 
 
 
@@ -28,7 +39,7 @@ duplicated_letters('banana')
 ```python
 def low_and_up(words):
     # 새로운 문자를 넣어줄 곳
-    new_word = ""
+    new_word = ''
     # 몇 번째 글자인지 판별
     count = 1
     for word in words:
@@ -46,6 +57,26 @@ def low_and_up(words):
 low_and_up('apple')
 low_and_up('banana')    
 ```
+
+```python
+# enumerate() 사용
+def low_and_up(words):
+    new_word = ''
+    for idx, char in enumerate(words):
+        if idx % 2:
+            new_word += char.upper()
+        else:
+            new_word += char.lower()    
+
+    return print(new_word)        
+            
+low_and_up('apple')
+low_and_up('banana')    
+```
+
+
+
+
 
 
 
@@ -73,5 +104,21 @@ def lonely(numbers):
 
 lonely([1, 1, 3, 3, 0, 1, 1])
 lonely([4, 4, 4, 3, 3])
+```
+
+```python
+# enumerate() 사용
+def lonely(numbers):
+    new_numbers = []
+    for idx, num in enumerate(numbers):
+        if idx == 0:
+            new_numbers.append(num)
+        elif new_numbers[-1] != num:
+            new_numbers.append(num)    
+    return print(new_numbers)    
+
+
+lonely([1, 1, 3, 3, 0, 1, 1])
+lonely([4, 4, 4, 3, 3]) 
 ```
 
