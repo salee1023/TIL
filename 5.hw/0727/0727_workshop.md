@@ -25,6 +25,7 @@ get_dict_avg({
 > 여러 사람의 혈액형(A, B, AB, O)에 대한 정보가 담긴 list를 전달 받아, key는 혈액형의 종류, value는 사람 수인 dictionary를 반환하는  count_blood 함수를 작성하시오. 
 
 ```python
+# 1. in 연산자 활용하기
 def count_blood(bloods):
     blood_dict = {}
     for blood in bloods:
@@ -35,6 +36,23 @@ def count_blood(bloods):
         else:
             blood_dict[blood] = 1       
 
+    return print(blood_dict)    
+
+
+count_blood([
+    'A' , 'B', 'A', 'O', 'AB', 'AB',
+    'O' , 'A', 'B', 'O', 'B', 'AB',
+    ])
+```
+
+```python
+# .get() 활용하기
+def count_blood(bloods):
+    blood_dict = {}
+    for blood in bloods:
+        # 값이 없으면  <0 + 1>
+        # 값이 있으면 <1 + 1>
+        blood_dict[blood] = blood_dict.get(blood,0)+1
     return print(blood_dict)    
 
 
