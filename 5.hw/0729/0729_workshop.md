@@ -1,4 +1,4 @@
-# 0728_workshop
+# 0729_workshop
 
 ### 1. pip 
 
@@ -12,7 +12,7 @@ $ pip install faker
 
 (1) faker이라는 외부 패키지를 설치하도록 도와준다.
 
-(2) 명령 프롬프트 (cmd)
+(2) 명령 프롬프트 (cmd) (python이 설치되어있는 어디에서나.)
 
 
 
@@ -50,8 +50,8 @@ fake.name()
 ```python
 class Faker():
     
-    def name(self, language):
-        pass   
+    def __init__(self, locale = 'en_US'):
+ 		pass       
 ```
 
 
