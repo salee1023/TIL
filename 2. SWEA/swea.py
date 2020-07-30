@@ -17,6 +17,7 @@ for c in range(1, case+1):
     # array1, array2에 1이 연속 3번 나오면 result + 1
     count = 0
     for i in range(n):
+        # 아래는 갯수만 알려줄 뿐, 연속된 숫자가 아님.
         if (array1[i].count(1) == 3)  or (array2[i].count(1) == 3):
             count += 1  
         # 결과 출력
