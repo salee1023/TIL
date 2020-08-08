@@ -1,4 +1,4 @@
-# 1차원 배열 선택정렬
+# 1차원 배열 SelectionSort
 a = [7,4,2,3]
 N = len(a)
 
@@ -14,7 +14,7 @@ print(a)
 b = [[1,4],[2,1],[1,2]]
 M = len(b)
 
-# 행 순서
+# 행 순서 SelectionSort
 for i in range(M-1):
     m = i
     for j in range(i+1,M):
@@ -31,3 +31,7 @@ for i in range(M-1):
     b[i], b[m] = b[m], b[i]
 
 print(b)
+
+# # 2차원 배열 선택정렬
+# b = [[1,4],[2,1],[1,2]]
+# M = len(b)
