@@ -1,0 +1,35 @@
+.grand-papa {
+  width: 800px;
+  height: 800px;
+  border: 4px dotted lightskyblue;
+  border-radius: 15px;
+  padding: 50px;
+  position: relative;
+}
+
+.papa {
+  width: 500px;
+  height: 500px;
+  border: 4px dotted lightgreen;
+  border-radius: 15px;
+  position: relative;
+}
+
+.child {
+  width: 150px;
+  height: 150px;
+  background: lightcoral;
+  border: 2px dotted black;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.absolute {
+  position: absolute;
+  bottom: 50px;
+  right: 100px;
+}
