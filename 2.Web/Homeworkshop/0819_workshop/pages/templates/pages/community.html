@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
     <table class="table">
     {% for article in articles %}  
         {% if forloop.counter0 == 0 %}
@@ -16,7 +15,7 @@
         {% else %}    
             <tbody>
                 <tr>
-                    <th scope="row">{{forloop.counter0 }}</th>
+                    <th scope="row">{{ forloop.counter0 }}</th>
                     <td>{{ article.0 }}</td>
                     <td>{{ article.1 }}</td>
                     <td>{{ article.2 }}</td>
@@ -25,5 +24,4 @@
         {% endif %}    
     {% endfor %}    
     </table>
-
 {% endblock %}
