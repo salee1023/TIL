@@ -5,11 +5,14 @@ def game(puzzle,i,j, s):
         x = i + dx[d]
         y = j + dy[d]
         cnt = 0
-        if puzzle[x][y] != 0 and puzzle[x][y] != s: # 주변에 돌이 있고 색이 다르면
-            while puzzle[x][y] != 0 and puzzle[x][y] != s: # 돌이 있고, 같은 색 돌이 나올 때 까지
+        if puzzle[x][y] != 0 and puzzle[x][y] != s and puzzle[x + dx[d]][y + dy[d]] != 0: # 주변에 돌이 있고 색이 다르면
+            while puzzle[x][y] != s: # 같은 색 돌이 나올 때 까지
                 cnt += 1
                 x += dx[d]
                 y += dy[d]
+                if puzzle[x][y] == 0:
+                    cnt = 0
+                    break
             x = i + dx[d]
             y = j + dy[d]
             while cnt > 0:
