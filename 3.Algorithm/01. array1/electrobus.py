@@ -17,8 +17,3 @@ for tc in range(1, T+1):
             break
     else: # 종점 도착
         print(f'#{tc} {cnt}')
-
-
-
-
-

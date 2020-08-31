@@ -1,0 +1,23 @@
+'''
+n번째 학생은 n-1번째 학생이 고른 카드 패턴 외에, 카드들 중에서 가장 작은 수의 카드를 고르면 
+전체 합도 최솟값이 된다.
+'''
+
+minValue = 13*15
+card = list([0]*4 for _ in range(N))
+pattern = 0
+
+# 첫번째 학생이 선택한 무늬에 따라 최솟값을 구한다.
+for c in range(4): 
+  value = 0
+  pattern = c # 1번 학생이 선택한 무늬
+  value += card[0][pattern]
+  
+  for n in range(1,N): # 2~N번 학생
+    card[n].remove(card[n][pattern]) # 전 학생이 고른 무늬는 삭제한다
+    value += min(card[n]) # 남은 카드 중에서 가장 작은 숫자의 카드를 더한다
+    pattern = card[n].index(min(card[n])) # n번째 학생이 선택한 카드의 무늬
+  
+  if value < minValue:
+    minValue = value
+  
