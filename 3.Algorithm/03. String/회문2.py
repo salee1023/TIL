@@ -1,21 +1,16 @@
-def is_pal(matrix,N,M):
-    # 행
-    for i in range(N):
-        for j in range(N-M+1):
-            string = matrix[i][j:j+M]
-            if string == string[::-1]:
-                return string
-    # 열
-    for i in range(N):
-        for j in range(N-M+1):
-            c_string = ''
-            for m in range(M):
-                c_string += matrix[j+m][i]
-            if c_string == c_string[::-1]:
-                return c_string
+# 최대 회문 길이 확인하기
+def pal(matrix):
+    for l in range(100,1,-1): # 회문 길이
+        for i in range(100):
+            for j in range(100 - l + 1):
+                s = matrix[i][j:j+l]
+                if s == s[::-1]:
+                    return l
 # ---------------------------------------------
-T = int(input())
-for tc in range(1, 1 + T):
-    N, M = map(int, input().split())
-    matrix = [input() for _ in range(N)]
-    print(f'#{tc} {is_pal(matrix,N,M)}')
+for _ in range(10):
+    n = int(input())
+    matrix = [input() for _ in range(100)]
+    r_matrix = [[matrix[i][j] for i in range(100)] for j in range(100)] #전치행렬
+    r = pal(matrix)
+    c = pal(r_matrix)
+    print(f'#{n} {max(r,c)}')
