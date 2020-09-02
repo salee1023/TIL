@@ -34,3 +34,10 @@ for tc in range(1,1+T):
     for a in arr:
         print(f'{sum(a)} ', end='')
     print()
+
+'''
+3
+7 5 2
+9 10 -3
+9 100 100
+'''
