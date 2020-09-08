@@ -23,7 +23,7 @@ def f(i, j):
                 visited[ni][nj] = 1 # 방문체크
                 distance[ni][nj] = distance[i][j] + 1 # 이전 지점까지의 거리 + 1
                 if maze[ni][nj] == '3': # 도착
-                    res =  distance[i][j] -1
+                    res = distance[i][j] -1
 # ----------------------------------------
 T = int(input())
 for tc in range(1,1+T):
