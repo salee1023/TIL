@@ -1,7 +1,7 @@
 def delete(sentence):
     stack = []
     for s in sentence:
-        if len(stack) ==0 or stack[-1] != s:
+        if len(stack) == 0 or stack[-1] != s:
             stack.append(s)
         else:
             stack.pop()    
