@@ -77,4 +77,4 @@ def comments_create(request, pk):
 {% endfor %}
 ```
 
-(a) : comments
+(a) : post.comment_set.all

@@ -1,5 +1,3 @@
-
-
 # 0922_workshop
 
 ### 1. SQL Query
@@ -57,8 +55,7 @@ hotels
 ```sql
 SELECT room_num, price
 FROM hotels
-ORDER BY price DESC;
-
+ORDER BY price DESC LIMIT 2;
 ```
 
 ```
@@ -66,8 +63,6 @@ room_num  price
 --------  -----
 B203      900
 1102      850
-303       500
-807       300
 ```
 
 ---
@@ -77,15 +72,16 @@ B203      900
 ```sql
 SELECT grade, COUNT(grade)
 FROM hotels
-GROUP BY grade;
+GROUP BY grade
+ORDER BY COUNT(*) DESC;
 ```
 
 ```
 grade     COUNT(grade)
 --------  ------------
-deluxe    1
 suite     2
 superior  1
+deluxe    1
 ```
 
 ---

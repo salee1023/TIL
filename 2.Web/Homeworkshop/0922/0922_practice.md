@@ -73,6 +73,8 @@ age
 
 ```python
 User.objects.values('age')
+---------------------------
+User.objects.get(id=19).age
 ```
 
 ```
@@ -233,6 +235,8 @@ country
 user = User.objects.get(first_name='옥자',last_name='김') 
 user.country='경기도'
 user.save()
+---------------------
+User.objects.filter(first_name='옥자', last_name='김').update(country='경기도')
 ```
 
 ```
@@ -255,6 +259,8 @@ WHERE first_name='진호' AND last_name='백';
 ```python
 user = User.objects.get(first_name='진호', last_name='백')
 user.delete()
+-------------------------
+User.objects.filter(first_name='진호', last_name='백').delete()
 ```
 
 ```
@@ -435,6 +441,7 @@ first_name
 
 ```python
 User.objects.filter(country='제주특별자치도').order_by('-balance').values('first_name')[:1]
+-----------------------------------------------------------------------------------------User.obejcts.filter(country='제주특별자치도').order_by('-balance').values('first_name')[0]
 ```
 
 ```
