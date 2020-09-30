@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- Q1-4 start -->
+  <!--로그인을 한 경우 -->
+  {% if request.user.is_authenticated %}
+    <h3 class="username">{{ user.username }}</h3>
+    <a href="{% url 'reservations:index' %}" class="index-link">index</a>
+    <a href="{% url 'reservations:create' %}" class="create-link">create</a>
+    <a href="{% url 'accounts:logout' %}" class="logout-link">logout</a>
+  <!--로그인을 한 경우 -->
+  {% else %}
+    <a href="{% url 'accounts:login' %}" class="login-link">login</a>
+    <a href="{% url 'accounts:signup' %}" class="signup-link">signup</a>
+  {% endif %}
+  <!-- Q1-4 end -->
+  <hr>
+  {% block content %}
+  {% endblock %}
+</body>
+</html>
