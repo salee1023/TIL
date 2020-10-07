@@ -27,9 +27,9 @@ class Music(models.Model):
         return f'{self.title}'
 ```
 
-![image-20201006160356805](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006160356805.png)
+![image-20201006160356805](1006_workshop.assets/image-20201006160356805.png)
 
-![image-20201006160413220](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006160413220.png)
+![image-20201006160413220](1006_workshop.assets/image-20201006160413220.png)
 
 ---
 
@@ -188,16 +188,16 @@ def music_detail_update_delete(request, music_pk):
         )
 ```
 
-![image-20201006161806189](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006161806189.png)
+![image-20201006161806189](1006_workshop.assets/image-20201006161806189.png)
 
-![image-20201006162320441](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006162320441.png)
+![image-20201006162320441](1006_workshop.assets/image-20201006162320441.png)
 
-![image-20201006163135556](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006163135556.png)
+![image-20201006163135556](1006_workshop.assets/image-20201006163135556.png)
 
-![image-20201006163242495](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006163242495.png)
+![image-20201006163242495](1006_workshop.assets/image-20201006163242495.png)
 
-![image-20201006164240812](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006164240812.png)
+![image-20201006164240812](1006_workshop.assets/image-20201006164240812.png)
 
-![image-20201006164414110](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006164414110.png)
+![image-20201006164414110](1006_workshop.assets/image-20201006164414110.png)
 
-![image-20201006164452191](C:\Users\dltmd\Desktop\SSAFY\online-lecture\1006\1006_workshop.assets\image-20201006164452191.png)
+![image-20201006164452191](1006_workshop.assets/image-20201006164452191.png)
