@@ -21,9 +21,9 @@
 
 
 1. REST의 구성 요소
-   - 자원 : URI + 계층
-   - 행위 : HTTP Method
-   - 표현 : JSON
+   - 자원
+   - 행위
+   - 표현
 
 2. REST 중심 규칙
 

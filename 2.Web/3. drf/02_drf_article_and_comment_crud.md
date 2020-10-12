@@ -102,7 +102,7 @@ def create_comment(request, article_pk):
 
 `create_comment` 함수와 매핑된 경로로 요청을 보내면 아래와 같이 validation checking 과정에서 이슈가 발생한다. 이는 CommentSerializer를 작성할 때, `article` 필드를 넣었음에도 `form-data`에서 데이터를 전송하지 않았기 때문이다. 
 
-![](02_drf_article_and_comment_crud.assets/create comment.PNG)
+![](./02_drf_article_and_comment_crud.assets/create comment.PNG)
 
 
 
@@ -167,7 +167,7 @@ def create_comment(request, article_pk):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 ```
 
-![](./02_drf_article_and_comment_crud.assets/create_comment_#.PNG)
+![](./02_drf_article_and_comment_crud.assets/create_comment_1.PNG)
 
 
 
@@ -198,7 +198,7 @@ def comment_list(request):
 
 
 
-![](./02_drf_article_and_comment_crud.assets/comment list.PNG)
+![](./02_drf_article_and_comment_crud.assets/comment_list.PNG)
 
 
 
@@ -255,11 +255,11 @@ def comment_detail_update_delete(request, comment_pk):
         return Response({ 'id': comment_pk }, status=status.HTTP_204_NO_CONTENT)
 ```
 
-![](./02_drf_article_and_comment_crud.assets/comment detail update delete_1.PNG)
+![](./02_drf_article_and_comment_crud.assets/comment_detail_update_delete_1.PNG)
 
-![](./02_drf_article_and_comment_crud.assets/comment detail update delete_2.PNG)
+![](./02_drf_article_and_comment_crud.assets/comment_detail_update_delete_2.PNG)
 
-![](./02_drf_article_and_comment_crud.assets/comment detail update delete_3.PNG)
+![](./02_drf_article_and_comment_crud.assets/comment_detail_update_delete_3.PNG)
 
 
 
