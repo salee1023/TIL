@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODO</title>
+  <style>
+    .done {
+      text-decoration: line-through;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" />
+  <button>Add</button>
+  <ul></ul>
+
+  <script>
+    function TodoAddRemove () {
+      const input = document.querySelector('input')
+      const content = input.value
+
+      const ul = document.querySelector('ul')
+      const li = document.createElement('li')
+      
+      li.innerText = content
+      li.style.cursor = 'pointer'
+      
+
+      // li 요소를 클릭하면 해당 요소에 "done" 클래스가 toggle 된다.
+      li.addEventListener('click', function () {
+        console.dir(event)
+        if (event.target.nodeName === 'LI'){
+          event.target.classList.toggle('done')
+        } 
+        // li 요소안에 button은 클릭해도 변화하지 않는다.
+        else {     
+          event.preventDefault()
+        }
+      })
+
+
+      // update button 생성
+      const updatebutton = document.createElement('button')
+      updatebutton.innerText = '수정'
+      updatebutton.style.marginLeft = '5px'
+      
+      updatebutton.addEventListener('click', function () {
+          // input 에 수정할 내용을 넣어준다.
+          input.value = event.target.parentNode.firstChild.data
+          button.innerText = '수정하기'
+          li.remove()
+
+          button.addEventListener('click', function () {
+            button.innerText = 'Add'
+          })
+      })
+
+
+      // 새로운 button 요소를 생성하고, "x" 문자를 innerText로 넣는다.
+      const deletebutton = document.createElement('button')
+      deletebutton.innerText = 'X'
+      deletebutton.style.marginLeft = '5px'
+      
+      
+      // button 요소가 클릭되었을 때 li 요소를 삭제한다.
+      deletebutton.addEventListener('click', function () {
+        li.remove()
+      })
+      
+      
+      // li 요소에 button 요소를 자식요소로 추가한다.
+      li.appendChild(updatebutton)
+      li.appendChild(deletebutton)
+      
+      
+      ul.appendChild(li)
+      input.value = ''
+    }
+
+    const button = document.querySelector('button')
+    button.addEventListener('click', TodoAddRemove)
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog API</title>
+</head>
+<body>
+    <h1>Dog API</h1>
+    <button id="dog">댕댕이내놔</button>
+    <button id="cat">집사이리온</button>
+    <hr>
+    <div id="animals"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const DOG_API_URL = 'https://dog.ceo/api/breeds/image/random'
+        const CAT_API_URL = 'https://api.thecatapi.com/v1/images/search'
+
+
+        function getCat() {
+            axios.get(CAT_API_URL)
+              .then(function (res) {
+                console.log(res)
+                const catImg = document.createElement('img')
+                const catImgSrc = res.data[0].url
+                catImg.src = catImgSrc
+                catImg.width = 300
+                catImg.height = 400
+                animalDiv.append(catImg)
+              })
+              .catch(function (err) {
+                console.log(err)
+              })
+        }
+
+
+        function getDog () {
+            // 'Axios'를 사용해서 DOG API에 GET 요청을 보낸다.
+            axios.get(DOG_API_URL)
+            // 정상적으로 응답이 오면, 
+              .then(function (res) {
+                // 이미지 요소 만들기 (크기 알아서 조절)
+                const dogImg = document.createElement('img')
+                // animals div에 이미지 요소 추가하기
+                const dogImgSrc = res.data.message
+                //dogImg.src = dogImgSrc
+                dogImg.setAttribute('src', dogImgSrc)
+                dogImg.setAttribute('width', 300)
+                dogImg.setAttribute('height', 400)
+                animalDiv.append(dogImg)
+              })
+              .catch(function (err) {
+                  console.log(err)
+              })
+        }
+        
+        // '댕댕이내놔' 버튼을 클랙했을 경우
+        const getDogButton = document.querySelector('#dog')
+        const getcatButton = document.querySelector('#cat')
+        const animalDiv = document.querySelector('#animals')
+        getDogButton.addEventListener('click', getDog)
+        getcatButton.addEventListener('click', getCat)
+    </script>
+</body>
+</html>
