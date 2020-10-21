@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>{{hashtag.content}}에 {{hashtag.tagged_articles.all|length}}개의 글이 있습니다.</p>
+{% for article in hashtag.tagged_articles.all  %}
+    <p>{{article.title}}</p>
+    <p>{{article.like_users.count}}명이 이 글을 좋아합니다.</p>
+
+    <hr>
+{% endfor %}
+
+{% endblock %}
