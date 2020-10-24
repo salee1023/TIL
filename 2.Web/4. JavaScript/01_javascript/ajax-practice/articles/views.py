@@ -5,6 +5,9 @@ from django.contrib.auth import get_user_model
 from .models import Article, Comment
 from .forms import ArticleForm, CommentForm
 
+
+from django.http import JsonResponse
+
 # Create your views here.
 def index(request):
     articles = Article.objects.order_by('-pk')
@@ -110,7 +113,15 @@ def like(request, article_pk):
         if article.like_users.filter(pk=user.pk).exists():
         # if user in article.like_users.all():
             article.like_users.remove(user)
+            liked = False
         else:
             article.like_users.add(user)
-        return redirect('articles:index')
+            liked = True
+
+        like_status = {
+            'liked': liked,
+            'count': article.like_users.count(),
+        }
+        return JsonResponse(like_status)
+        # return redirect('articles:index')
     return redirect('accounts:login')
