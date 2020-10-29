@@ -1,5 +1,5 @@
 def babygin():
-    i = r1 = t1 = r2 = t2 = 0
+    i = 0
     while i < 10:
         if (player1[i] >= 3) or (player1[i] >= 1 and player1[i+1] >= 1 and player1[i+2] >= 1):
             return 1

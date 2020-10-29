@@ -1,28 +1,15 @@
 T = int(input())
 for tc in range(1, 1+T):
     N = int(input())
-    arr = int(list(map(int, input().split())) for _ in range(N))
-    min = 987654321
-    Q = []
-    Q.append([0, 0])
-    while Q:
-        pass
-
-'''
-3
-3
-1 2 3
-2 3 4
-3 4 5
-4
-2 4 1 3
-1 1 7 1
-9 1 7 10
-5 7 2 4
-5
-6 7 1 10 2
-10 2 7 5 9
-9 3 2 9 6
-1 6 8 2 9
-8 3 8 2 1
-'''
+    arr = [list(map(int, input().split())) for _ in range(N)]
+    distance = [[0]*N for _ in range(N)]
+    distance[0][0] = arr[0][0]
+    for x in range(N):
+        for y in range(N):
+            if x == 0:
+                distance[x][y] = distance[x][y-1] + arr[x][y]
+            elif y == 0:
+                distance[x][y] = distance[x-1][y] + arr[x][y]
+            else:
+                distance[x][y] = min(distance[x][y-1], distance[x-1][y]) + arr[x][y]
+    print(f'#{tc} {distance[N-1][N-1]}')

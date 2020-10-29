@@ -4,7 +4,7 @@ def dfs(v):
     visited[v] = 1
     print(v, end=' ')
     # v의 인접한 정점중에서 방문안한 정점을 재귀호출
-    for w in range(1,V+1):
+    for w in range(1, V+1):
         if G[v][w] == 1 and visited[w] == 0:
             dfs(w)          
 # --------------------------------------------

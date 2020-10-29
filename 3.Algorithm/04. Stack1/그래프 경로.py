@@ -9,7 +9,7 @@ def f1(stx,  goal, V): # dfs반복
             v[n] = 1
             if n == goal:
                 return 1
-            for i in range(1,V+1):
+            for i in range(1, V+1):
                 if graph[n][i] == 1: # 방문한 적 없고 n에 인접한 노드
                     stack.append(i)                      
     return 0 # 다 돌았는데 목적지에 도착 못했을 때
@@ -23,5 +23,4 @@ for tc in range(1,1+T):
         i, j = map(int, input().split())
         graph[i][j] = 1 # 방향성 그래프
     S, G = map(int, input().split())
-    print(f'#{tc} {f1(S,G,V)}') 
-      
+    print(f'#{tc} {f1(S,G,V)}')

@@ -8,7 +8,7 @@
 0 0 2 1 0 2 1
 0 0 1 2 2 0 2
 '''
-for tc in range(1,11):
+for tc in range(1, 11):
     N = int(input())
     arr = [list(map(int, input().split())) for _ in range(N)]
     table = [list(arr[i][j] for i in range(N)) for j in range(N)]

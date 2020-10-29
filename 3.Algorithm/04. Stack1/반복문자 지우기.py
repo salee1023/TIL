@@ -8,7 +8,7 @@ def delete(sentence):
     return stack
 # --------------------------
 T = int(input())
-for tc in range(1,1+T):
+for tc in range(1, 1+T):
     sentence = input()
     ans = delete(sentence)
     print(f'#{tc} {len(ans)}')
