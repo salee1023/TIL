@@ -13,14 +13,20 @@ def into_binary():
 
 def find_code(N, M):
     for n in range(N):
-        for m in range(M-1, -1, -1):
+        m = M-1
+        while m:
             if arr_binary[n][m] == '1':
                 i = 1
                 while arr_binary[n][m-(55*i)] != '0':
                     i += 1
                 else:
                     codes.append(''.join(arr_binary[n][m-(55*i):m+1]))
-                    arr_binary[n][m-(55 * i):m+1] = '0'
+                    for j in range(N):
+                        arr_binary[j][m-(55 * i):m+1] = '0'
+                    m -= 55*i-1
+            else:
+                m -= 1
+        return
 
 
 T = int(input())
@@ -31,10 +37,11 @@ for tc in range(1, 1+T):
     codes = []
     # 2진수로 변환
     into_binary()
+    for a in arr_binary:
+        print(''.join(a))
     # 암호코드 찾기
-    print(arr_binary[2][33])
-    # find_code(N, M*4)
-    # print(codes)
+    find_code(N, M*4)
+    print(codes)
 
 
 '''
