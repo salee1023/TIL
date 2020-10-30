@@ -53,3 +53,13 @@ for tc in range(1, 1+T):
         if ans > max:
             max = ans
     print(f'#{tc} {max}')
+
+'''
+3
+7 5
+5 4 2 7 1 2 3
+8 6
+10 10 1 3 1 5 4 7
+3 1
+1 3 1
+'''
