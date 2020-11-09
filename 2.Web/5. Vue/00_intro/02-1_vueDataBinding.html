@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2. Vue Data --binding-- DOM</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ message }}</p>
+    <p>{{ message2 }}</p>
+    <ul>
+      <li>{{ todos }}</li>
+    </ul>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '너무 졸리다',
+        message2: '커피 마시자',
+        todos: [
+        { id:1, content: 'Vue 복습', completed: false},
+        { id:2, content: 'JS 복습', completed: false},
+        { id:3, content: 'Django 복습', completed: false},
+        ],
+      },
+    })
+  </script>
+</body>
+</html>
