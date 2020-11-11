@@ -1,0 +1,116 @@
+# 1110_workshop
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1110_workshop</title>
+    <style>
+        form {
+            display: inline-block;
+        }
+        ul > li {
+            list-style-type: none;
+        }
+        .done {
+            text-decoration: line-through;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <select v-model="selected">
+            <option>전체</option>
+            <option>진행중</option>
+            <option>완료</option>
+        </select>
+        <form @submit.prevent="addTodo">
+            <input type="text" v-model="inputTodo">
+            <button>+</button>
+        </form>
+        <ul>
+            <!--개별 노드를 추적하고, 기존 element를 재사용, 재정렬하기 위해서 고유 key를 부여해준다.--> 
+            <li v-for="todo in newTodos" :key="todo.id">
+                <input type="checkbox" v-model="todo.completed">
+                <span :class="{ done: todo.completed }">
+                    {{ todo.content }} 
+                </span>
+            </li>
+        </ul>
+        <button @click="deleteTodos">완료된 할 일 지우기</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const STORAGE_KEY = 'todo-app'
+        const todoStorage = {
+            save: function (todos) {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+            },
+            fetch: function () {
+                // storage에 아무 값이 없으면 빈 배열을 넣어준다.
+                return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
+            },
+        }
+
+        const app = new Vue ({
+            el: "#app",
+            data: {
+                inputTodo: '',
+                todos: todoStorage.fetch(),
+                selected: '전체',
+            },
+            computed: {
+                newTodos: function () {
+                    if (this.selected === '전체') {
+                        return this.todos
+                    } else if (this.selected === '진행중') {
+                        return this.todos.filter(todo => todo.completed === false)
+                    } else {
+                        return this.todos.filter(todo => todo.completed === true)
+                    }
+                },
+            },
+            methods: {
+                addTodo: function () {
+                    const todo = {
+                        id: new Date().getTime(),
+                        content: this.inputTodo,
+                        completed: false,
+                    }
+                    this.todos.push(todo)
+                    this.inputTodo = ''
+                    // todoStorage.save(this.todos)
+                },
+                deleteTodos: function () {
+                    const deletedTodos = this.todos.filter(todo => todo.completed == false) 
+                    this.todos = deletedTodos
+                    // todoStorage.save(this.todos)
+                }
+            },
+            // todos가 변경될 때 마다 localStorage에 반영
+            watch: {
+                todos: {
+                    deep: true, //중첩된 데이터까지 감시하도록 설정
+                    handler: function () { // handler - 데이터가 변경됐을 때 수행할 로직
+                        todoStorage.save(this.todos)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+```
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 # 최대 회문 길이 확인하기
 def pal(matrix):
-    for l in range(100,1,-1): # 회문 길이
+    for l in range(100, 1, -1): # 회문 길이
         for i in range(100):
             for j in range(100 - l + 1):
                 s = matrix[i][j:j+l]
