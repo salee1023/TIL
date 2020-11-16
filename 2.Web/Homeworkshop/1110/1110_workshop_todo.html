@@ -25,7 +25,7 @@
             <option>완료</option>
         </select>
         <form @submit.prevent="addTodo">
-            <input type="text" v-model="inputTodo">
+            <input type="text" v-model.trim="inputTodo">
             <button>+</button>
         </form>
         <ul>
@@ -73,13 +73,16 @@
             },
             methods: {
                 addTodo: function () {
-                    const todo = {
-                        id: new Date().getTime(),
-                        content: this.inputTodo,
-                        completed: false,
+                    if (this.inputTodo) {
+
+                        const todo = {
+                            id: new Date().getTime(),
+                            content: this.inputTodo,
+                            completed: false,
+                        }
+                        this.todos.push(todo)
+                        this.inputTodo = ''
                     }
-                    this.todos.push(todo)
-                    this.inputTodo = ''
                     // todoStorage.save(this.todos)
                 },
                 deleteTodos: function () {
