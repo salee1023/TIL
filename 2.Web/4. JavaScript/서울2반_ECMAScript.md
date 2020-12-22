@@ -1240,3 +1240,35 @@ arr.every(callback(element, index, arrary))
   const result = numbers.every(number => number !== 0)
   ```
 
+
+
+---
+
+#### 정렬하기
+
+array.sort((a,b) => a - b) 오름차순
+
+array.sort((a,b) => b - a) 내림차순
+
+---
+
+#### 중복제거
+
+- Set
+
+const set = new Set(array)
+
+var answer = [...set];
+
+
+
+[...new Set(array)];
+
+
+
+- filter
+
+array.filter((item, index) => array.indexOf(item) === index);
+
+---
+
