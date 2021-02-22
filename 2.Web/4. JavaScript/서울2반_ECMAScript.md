@@ -927,20 +927,18 @@ const userInformation = {
   const {name, userId, phoneNumber, email} = userInformation
   console.log(name, userId, phoneNumber, email)
   ```
-```
-  
-  ```javascript
-  // ES5까지
+```javascript
+// ES5까지
 function getUserInfo (name, userId) {
-      console.log(name, userId)
-  }
-  getUserInfo (userInformation.name, userInformation.userId)
-  
-  // ES6
-  function getUserInfo ({name, userId}) {
-      console.log(name, userId)
-  }
-  getUserInfo (userInformation)
+    console.log(name, userId)
+}
+getUserInfo (userInformation.name, userInformation.userId)
+
+// ES6
+function getUserInfo ({name, userId}) {
+    console.log(name, userId)
+}
+getUserInfo (userInformation)
 ```
 
   
